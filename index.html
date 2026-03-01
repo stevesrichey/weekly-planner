@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;80/20 Weekly Planner&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">:root {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--pri:#2563eb;--pri-l:#dbeafe;--acc:#f59e0b;--acc-l:#fef3c7;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--suc:#10b981;--suc-l:#d1fae5;--pur:#8b5cf6;--pur-l:#ede9fe;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--gry:#6b7280;--gry-l:#f3f4f6;--dan:#ef4444;--dan-l:#fee2e2;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--bg:#f8fafc;--card:#fff;--txt:#1e293b;--txt2:#64748b;--brd:#e2e8f0;</p>
+<p class="p1">}</p>
+<p class="p1">*{box-sizing:border-box;margin:0;padding:0}</p>
+<p class="p1">body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--txt);padding:16px 20px;line-height:1.5}</p>
+<p class="p1">.ctn{max-width:960px;margin:0 auto}</p>
+<p class="p1">header{text-align:center;margin-bottom:24px}</p>
+<p class="p1">header h1{font-size:1.7em;margin-bottom:2px}</p>
+<p class="p1">header .ac{color:var(--pri)}</p>
+<p class="p1">header p{color:var(--txt2);font-size:.9em}</p>
+<p class="p1">.card{background:var(--card);border-radius:12px;padding:18px 22px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);border:1px solid var(--brd)}</p>
+<p class="p1">.card h2{font-size:1em;margin-bottom:4px;display:flex;align-items:center;gap:8px}</p>
+<p class="p1">.hint{color:#94a3b8;font-size:.8em;margin-bottom:10px}</p>
+<p class="p1">.row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}</p>
+<p class="p1">.fld{display:flex;flex-direction:column;gap:3px}</p>
+<p class="p1">.fld label{font-size:.76em;color:var(--txt2);font-weight:500}</p>
+<p class="p1">.fld.grow{flex:1;min-width:140px}</p>
+<p class="p1">input,select{padding:7px 10px;border:1px solid var(--brd);border-radius:8px;font-size:.87em;font-family:inherit;color:var(--txt)}</p>
+<p class="p1">input:focus,select:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(37,99,235,.12)}</p>
+<p class="p1">button{padding:7px 14px;border:none;border-radius:8px;font-family:inherit;font-size:.87em;cursor:pointer;font-weight:500;transition:background .15s}</p>
+<p class="p1">.ba{background:#f1f5f9;color:#334155;border:1px solid var(--brd)}</p>
+<p class="p1">.ba:hover{background:#e2e8f0}</p>
+<p class="p1">.br{background:none;color:var(--dan);padding:2px 8px;font-size:.8em}</p>
+<p class="p1">.br:hover{background:var(--dan-l);border-radius:4px}</p>
+<p class="p1">.bg{display:block;width:100%;padding:13px;background:var(--pri);color:#fff;font-size:1em;font-weight:600;border-radius:12px;margin-bottom:12px}</p>
+<p class="p1">.bg:hover{background:#1d4ed8}</p>
+<p class="p1">.il{margin-top:10px}</p>
+<p class="p1">.it{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;background:#f8fafc;border-radius:8px;margin-bottom:5px;font-size:.87em;border:1px solid #f1f5f9}</p>
+<p class="p1">.it .n{font-weight:500}.it .m{color:#94a3b8;font-size:.83em;margin-left:8px}</p>
+<p class="p1">.emp{color:#cbd5e1;font-size:.83em;font-style:italic;padding:6px 0}</p>
+<p class="p1">.sn{text-align:center;font-size:.76em;color:#94a3b8;margin-bottom:12px}</p>
+<p class="p1">.sw{overflow-x:auto;margin-top:12px;-webkit-overflow-scrolling:touch}</p>
+<p class="p1">.sg{display:grid;grid-template-columns:76px repeat(5,1fr);gap:2px;min-width:580px;font-size:.76em}</p>
+<p class="p1">.gh{background:#1e293b;color:#fff;padding:8px 4px;text-align:center;font-weight:600}</p>
+<p class="p1">.gt{background:#f1f5f9;padding:5px 8px;text-align:right;font-weight:500;font-size:.88em;display:flex;align-items:center;justify-content:flex-end}</p>
+<p class="p1">.gc{padding:5px 6px;text-align:center;font-size:.85em;display:flex;align-items:center;justify-content:center;min-height:34px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border-radius:3px;font-weight:500}</p>
+<p class="p1">.ca{background:var(--acc-l);color:#92400e}</p>
+<p class="p1">.cd{background:var(--pur-l);color:#6d28d9}</p>
+<p class="p1">.cr{background:var(--suc-l);color:#065f46}</p>
+<p class="p1">.cb{background:#f8fafc;color:#cbd5e1;font-style:italic;font-weight:400}</p>
+<p class="p1">.lg{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:6px;font-size:.76em;color:var(--txt2)}</p>
+<p class="p1">.li{display:flex;align-items:center;gap:5px}</p>
+<p class="p1">.ls{width:12px;height:12px;border-radius:3px;flex-shrink:0}</p>
+<p class="p1">.sr{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;justify-content:center}</p>
+<p class="p1">.sb{text-align:center;padding:10px 14px;border-radius:10px;flex:1;min-width:80px}</p>
+<p class="p1">.sb .num{font-size:1.3em;font-weight:700}</p>
+<p class="p1">.sb .lbl{font-size:.7em;color:var(--txt2)}</p>
+<p class="p1">.wb{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;padding:10px 14px;border-radius:8px;margin-top:10px;font-size:.87em}</p>
+<p class="p1">.er{display:flex;gap:10px;margin-top:14px}</p>
+<p class="p1">.be{flex:1;padding:11px;border-radius:10px;font-weight:500;font-size:.9em;display:flex;align-items:center;justify-content:center;gap:6px}</p>
+<p class="p1">.bn{background:#191919;color:#fff}.bn:hover{background:#333}</p>
+<p class="p1">.bi{background:#0078d4;color:#fff}.bi:hover{background:#006abc}</p>
+<p class="p1">.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:10px 20px;border-radius:8px;font-size:.87em;opacity:0;transition:opacity .3s;z-index:999;pointer-events:none;white-space:nowrap}</p>
+<p class="p1">.toast.show{opacity:1}</p>
+<p class="p1">#output{display:none}</p>
+<p class="p1">#output.vis{display:block;animation:fi .4s ease}</p>
+<p class="p1">@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}</p>
+<p class="p1">.clr{font-size:.74em;color:#94a3b8;cursor:pointer;margin-left:auto}</p>
+<p class="p1">.clr:hover{color:var(--dan)}</p>
+<p class="p1">@media(max-width:640px){.row{flex-direction:column}.fld.grow{min-width:100%}.er{flex-direction:column}.sr{gap:6px}}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="ctn"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;📋 &lt;span class="ac"&gt;80/20&lt;/span&gt; Weekly Planner&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Protect your project time. Every week.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- WEEK START --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;📅 Week Starting&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hint"&gt;Select the Monday of the week you're planning.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="fld" style="max-width:200px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="date" id="ws"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- APPOINTMENTS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;📌 Firm Appointments &lt;span class="clr" onclick="clearAppts()"&gt;clear all&lt;/span&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hint"&gt;Meetings, calls, or fixed commitments. Saved between sessions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld"&gt;&lt;label&gt;Day&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="aD"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="0"&gt;Monday&lt;/option&gt;&lt;option value="1"&gt;Tuesday&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="2"&gt;Wednesday&lt;/option&gt;&lt;option value="3"&gt;Thursday&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="4"&gt;Friday&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld"&gt;&lt;label&gt;Start&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="aT"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="9"&gt;9:00 AM&lt;/option&gt;&lt;option value="10"&gt;10:00 AM&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="11"&gt;11:00 AM&lt;/option&gt;&lt;option value="12"&gt;12:00 PM&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="13"&gt;1:00 PM&lt;/option&gt;&lt;option value="14"&gt;2:00 PM&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="15"&gt;3:00 PM&lt;/option&gt;&lt;option value="16"&gt;4:00 PM&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld"&gt;&lt;label&gt;Length&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="aL"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="1"&gt;1 hr&lt;/option&gt;&lt;option value="2"&gt;2 hrs&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="3"&gt;3 hrs&lt;/option&gt;&lt;option value="4"&gt;4 hrs&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld grow"&gt;&lt;label&gt;Name&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="aN" placeholder="e.g., Team standup" onkeydown="if(event.key==='Enter')addA()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld"&gt;&lt;label&gt;&amp;nbsp;&lt;/label&gt;&lt;button class="ba" onclick="addA()"&gt;+ Add&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="aList" class="il"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PROJECTS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;🎯 Projects Needing Attention &lt;span class="clr" onclick="clearProjs()"&gt;clear all&lt;/span&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hint"&gt;Active projects needing time this week. Divided equally. Saved between sessions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld grow"&gt;&lt;label&gt;Project Name&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="pN" placeholder="e.g., Website Redesign" onkeydown="if(event.key==='Enter')addP()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fld"&gt;&lt;label&gt;&amp;nbsp;&lt;/label&gt;&lt;button class="ba" onclick="addP()"&gt;+ Add&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="pList" class="il"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="sn"&gt;💾 Your appointments &amp;amp; projects are saved in this browser for next time&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="bg" onclick="gen()"&gt;🚀 Generate My 80/20 Schedule&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- OUTPUT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="output"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;📊 Your Weekly Schedule&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="lgA"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sw"&gt;&lt;div id="grA"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="stA"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="wrA"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="er"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="be bn" onclick="cpN()"&gt;📋 Copy for Notion&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="be bi" onclick="dlI()"&gt;📥 Download .ics for Outlook&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="sn" style="margin-top:10px"&gt;ℹ️ The .ics export includes project work, admin &amp;amp; R&amp;D only (firm appointments excluded to avoid duplicates).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">/* ── State ── */</p>
+<p class="p1">let A=[],P=[],S=null,WS=null;</p>
+<p class="p1">const DN=['Monday','Tuesday','Wednesday','Thursday','Friday'];</p>
+<p class="p1">const HH=[9,10,11,12,13,14,15,16];</p>
+<p class="p1">const TGT=6;</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Project Colors ── */</p>
+<p class="p1">const PC=[</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{b:'#dbeafe',f:'#1e40af'},{b:'#dcfce7',f:'#166534'},{b:'#fce7f3',f:'#9d174d'},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{b:'#fef3c7',f:'#92400e'},{b:'#e0e7ff',f:'#3730a3'},{b:'#ccfbf1',f:'#115e59'},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{b:'#ffe4e6',f:'#9f1239'},{b:'#f3e8ff',f:'#6b21a8'},{b:'#fed7aa',f:'#9a3412'},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{b:'#cffafe',f:'#155e75'},{b:'#fef9c3',f:'#854d0e'},{b:'#d1fae5',f:'#065f46'},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{b:'#fbcfe8',f:'#831843'},{b:'#e2e8f0',f:'#334155'},{b:'#fee2e2',f:'#991b1b'}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Init ── */</p>
+<p class="p1">document.addEventListener('DOMContentLoaded',()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>load();setDate();rA();rP();</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">function setDate(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d=new Date(),w=d.getDay();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const add=w===0?1:w===1?0:8-w;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>d.setDate(d.getDate()+add);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('ws').value=fdi(d);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Date helpers ── */</p>
+<p class="p1">function fdi(d){return`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`}</p>
+<p class="p1">function pd(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)}</p>
+<p class="p1">function dpd(b,n){const d=new Date(b);d.setDate(d.getDate()+n);return d}</p>
+<p class="p1">function fh(h){return h===12?'12:00 PM':h&gt;12?`${h-12}:00 PM`:`${h}:00 AM`}</p>
+<p class="p1">function fdd(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}</p>
+<p class="p1">function p2(n){return String(n).padStart(2,'0')}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Appointments ── */</p>
+<p class="p1">function addA(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const day=+document.getElementById('aD').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const hr=+document.getElementById('aT').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const dur=+document.getElementById('aL').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nm=document.getElementById('aN').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!nm)return toast('Enter an appointment name');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(hr+dur&gt;17)return toast('Extends past 5:00 PM');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(const a of A){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(a.day!==day)continue;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(hr&lt;a.hr+a.dur&amp;&amp;a.hr&lt;hr+dur)return toast(`Conflicts with "${a.nm}"`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>A.push({id:Date.now(),day,hr,dur,nm});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('aN').value='';rA();save();</p>
+<p class="p1">}</p>
+<p class="p1">function rmA(id){A=A.filter(a=&gt;a.id!==id);rA();save();}</p>
+<p class="p1">function clearAppts(){if(A.length&amp;&amp;confirm('Clear all appointments?')){A=[];rA();save();}}</p>
+<p class="p1">function rA(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const el=document.getElementById('aList');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!A.length){el.innerHTML='&lt;p class="emp"&gt;No appointments yet&lt;/p&gt;';return}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el.innerHTML=A.map(a=&gt;`&lt;div class="it"&gt;&lt;div&gt;&lt;span class="n"&gt;${esc(a.nm)}&lt;/span&gt;&lt;span class="m"&gt;${DN[a.day]} ${fh(a.hr)}, ${a.dur}hr${a.dur&gt;1?'s':''}&lt;/span&gt;&lt;/div&gt;&lt;button class="br" onclick="rmA(${a.id})"&gt;✕&lt;/button&gt;&lt;/div&gt;`).join('');</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Projects ── */</p>
+<p class="p1">function addP(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nm=document.getElementById('pN').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!nm)return toast('Enter a project name');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(P.some(p=&gt;p.nm.toLowerCase()===nm.toLowerCase()))return toast('Already listed');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>P.push({id:Date.now(),nm});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('pN').value='';rP();save();</p>
+<p class="p1">}</p>
+<p class="p1">function rmP(id){P=P.filter(p=&gt;p.id!==id);rP();save();}</p>
+<p class="p1">function clearProjs(){if(P.length&amp;&amp;confirm('Clear all projects?')){P=[];rP();save();}}</p>
+<p class="p1">function rP(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const el=document.getElementById('pList');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!P.length){el.innerHTML='&lt;p class="emp"&gt;No projects yet&lt;/p&gt;';return}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el.innerHTML=P.map((p,i)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const c=PC[i%PC.length];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return`&lt;div class="it"&gt;&lt;span class="n" style="display:flex;align-items:center;gap:6px"&gt;&lt;span class="ls" style="background:${c.b};border:1px solid ${c.f}40"&gt;&lt;/span&gt;${esc(p.nm)}&lt;/span&gt;&lt;button class="br" onclick="rmP(${p.id})"&gt;✕&lt;/button&gt;&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Generate Schedule ── */</p>
+<p class="p1">function gen(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ws=document.getElementById('ws').value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!ws)return toast('Select a week start date');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>WS=pd(ws);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(WS.getDay()!==1)return toast('Please select a Monday');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!P.length)return toast('Add at least one project');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Init grid</p>
+<p class="p1"><span class="Apple-converted-space">  </span>S=Array.from({length:5},()=&gt;{const d={};HH.forEach(h=&gt;d[h]=null);return d});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 1. Place appointments</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(const a of A)for(let h=a.hr;h&lt;a.hr+a.dur&amp;&amp;h&lt;=16;h++)S[a.day][h]={t:'a',nm:a.nm};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 2. Admin &amp; R&amp;D on Friday morning (fallback if taken)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>plF('d','Admin');plF('r','R&amp;D');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 3. Collect project slots (fill each day to TGT)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let ps=[];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let filled=HH.filter(h=&gt;S[d][h]).length;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let need=Math.max(0,TGT-filled);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for(const h of HH){if(need&lt;=0)break;if(!S[d][h]){ps.push({d,h});need--;}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 4. Overflow check</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let warn=[];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(ps.length&lt;P.length){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let deficit=P.length-ps.length;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for(let d=0;d&lt;5&amp;&amp;deficit&gt;0;d++){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(const h of HH){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(deficit&lt;=0)break;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(!S[d][h]&amp;&amp;!ps.some(s=&gt;s.d===d&amp;&amp;s.h===h)){ps.push({d,h});deficit--;}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(deficit&gt;0){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>warn.push(`⚠️ Cannot schedule all ${P.length} projects even using buffer time. ${deficit} project(s) left unscheduled — consider trimming your list.`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 5. Round-robin assign projects</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let pi=0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(const s of ps){S[s.d][s.h]={t:'p',nm:P[pi].nm,pi};pi=(pi+1)%P.length;}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 6. Fill remaining with buffer</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++)HH.forEach(h=&gt;{if(!S[d][h])S[d][h]={t:'b',nm:'Buffer'}});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Stats</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let st={p:0,a:0,d:0,r:0,b:0};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++)HH.forEach(h=&gt;{st[S[d][h].t]++});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sched=40-st.b;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pct=sched&gt;0?Math.round(st.p/sched*100):0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Buffer warning</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(st.b&lt;10)warn.push(`⚠️ Buffer reduced to ${st.b}hrs this week (ideal: 10hrs). This is exactly what this tool helps you avoid!`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Appointments-heavy day check</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let apptH=HH.filter(h=&gt;S[d][h].t==='a').length;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(apptH&gt;=6)warn.push(`⚠️ ${DN[d]} has ${apptH} hours of appointments — no room for project work that day.`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Render</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rGrid();rLeg();rStats(st,pct);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('wrA').innerHTML=warn.map(w=&gt;`&lt;div class="wb"&gt;${w}&lt;/div&gt;`).join('');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const out=document.getElementById('output');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>out.classList.remove('vis');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>void out.offsetWidth; // reflow</p>
+<p class="p1"><span class="Apple-converted-space">  </span>out.style.display='block';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>out.classList.add('vis');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(()=&gt;out.scrollIntoView({behavior:'smooth'}),100);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function plF(type,name){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Try Friday morning first</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(const h of HH){if(!S[4][h]){S[4][h]={t:type,nm:name};return}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Fallback: late-week afternoons</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=3;d&gt;=0;d--)for(let h=16;h&gt;=9;h--){if(!S[d][h]){S[d][h]={t:type,nm:name};return}}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Render Grid ── */</p>
+<p class="p1">function rGrid(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let h='&lt;div class="sg"&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+='&lt;div class="gh" style="border-radius:8px 0 0 0"&gt;Time&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>DN.forEach((d,i)=&gt;h+=`&lt;div class="gh"${i===4?' style="border-radius:0 8px 0 0"':''}&gt;${d.slice(0,3)}&lt;/div&gt;`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>HH.forEach(hr=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h+=`&lt;div class="gt"&gt;${fh(hr)}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for(let d=0;d&lt;5;d++){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const c=S[d][hr];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cls='',sty='';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(c.t==='p'){const col=PC[c.pi%PC.length];sty=`background:${col.b};color:${col.f}`}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>else if(c.t==='a')cls='ca';else if(c.t==='d')cls='cd';else if(c.t==='r')cls='cr';else cls='cb';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const txt=c.t==='b'?'—':c.nm;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>h+=`&lt;div class="gc ${cls}" style="${sty}" title="${esc(c.nm)}"&gt;${esc(txt)}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+='&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('grA').innerHTML=h;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function rLeg(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let h='';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>P.forEach((p,i)=&gt;{const c=PC[i%PC.length];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h+=`&lt;div class="li"&gt;&lt;div class="ls" style="background:${c.b};border:1px solid ${c.f}40"&gt;&lt;/div&gt;${esc(p.nm)}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+=`&lt;div class="li"&gt;&lt;div class="ls" style="background:var(--acc-l)"&gt;&lt;/div&gt;Appointment&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+=`&lt;div class="li"&gt;&lt;div class="ls" style="background:var(--pur-l)"&gt;&lt;/div&gt;Admin&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+=`&lt;div class="li"&gt;&lt;div class="ls" style="background:var(--suc-l)"&gt;&lt;/div&gt;R&amp;D&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>h+=`&lt;div class="li"&gt;&lt;div class="ls" style="background:#f8fafc;border:1px solid var(--brd)"&gt;&lt;/div&gt;Buffer&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('lgA').innerHTML=`&lt;div class="lg"&gt;${h}&lt;/div&gt;`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function rStats(st,pct){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pc=pct&gt;=70?'#065f46':'#991b1b',pb=pct&gt;=70?'var(--suc-l)':'var(--dan-l)';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('stA').innerHTML=`&lt;div class="sr"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sb" style="background:var(--pri-l)"&gt;&lt;div class="num" style="color:#1e40af"&gt;${st.p}h&lt;/div&gt;&lt;div class="lbl"&gt;Project&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sb" style="background:var(--acc-l)"&gt;&lt;div class="num" style="color:#92400e"&gt;${st.a}h&lt;/div&gt;&lt;div class="lbl"&gt;Appointments&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sb" style="background:var(--pur-l)"&gt;&lt;div class="num" style="color:#6d28d9"&gt;${st.d+st.r}h&lt;/div&gt;&lt;div class="lbl"&gt;Admin + R&amp;D&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sb" style="background:var(--gry-l)"&gt;&lt;div class="num"&gt;${st.b}h&lt;/div&gt;&lt;div class="lbl"&gt;Buffer&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sb" style="background:${pb}"&gt;&lt;div class="num" style="color:${pc}"&gt;${pct}%&lt;/div&gt;&lt;div class="lbl"&gt;Project Focus&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Export: Notion ── */</p>
+<p class="p1">function cpN(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!S)return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let t='# 📋 80/20 Weekly Plan\n\n';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>t+=`## ${fdd(dpd(WS,d))}\n\n`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>for(const h of HH){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const c=S[d][h];if(c.t==='b')continue;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const icon=c.t==='p'?'🎯':c.t==='a'?'📌':c.t==='d'?'🔧':'🔬';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>t+=`- [ ] ${fh(h)} – ${fh(h+1)}: ${icon} ${c.nm}\n`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>t+='\n';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>navigator.clipboard.writeText(t).then(</p>
+<p class="p1"><span class="Apple-converted-space">    </span>()=&gt;toast('✓ Copied! Paste into Notion.'),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>()=&gt;{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('✓ Copied!')}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Export: ICS ── */</p>
+<p class="p1">function dlI(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!S)return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const now=new Date();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const stamp=`${now.getUTCFullYear()}${p2(now.getUTCMonth()+1)}${p2(now.getUTCDate())}T${p2(now.getUTCHours())}${p2(now.getUTCMinutes())}${p2(now.getUTCSeconds())}Z`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//8020Planner//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:80/20 Weekly Plan\r\n';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let d=0;d&lt;5;d++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const dt=dpd(WS,d);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ds=`${dt.getFullYear()}${p2(dt.getMonth()+1)}${p2(dt.getDate())}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let h=9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>while(h&lt;=16){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const c=S[d][h];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(c.t==='b'||c.t==='a'){h++;continue} // skip buffer &amp; existing appointments</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let end=h+1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>while(end&lt;=16&amp;&amp;S[d][end]&amp;&amp;S[d][end].nm===c.nm&amp;&amp;S[d][end].t===c.t)end++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const uid=`8020-${ds}${p2(h)}-${Math.random().toString(36).substr(2,8)}@planner`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const cat=c.t==='p'?'Project Work':c.t==='d'?'Admin':'R&amp;D';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ics+=`BEGIN:VEVENT\r\nUID:${uid}\r\nDTSTAMP:${stamp}\r\nDTSTART:${ds}T${p2(h)}0000\r\nDTEND:${ds}T${p2(end)}0000\r\nSUMMARY:${iesc(c.nm)}\r\nDESCRIPTION:${iesc(cat+' — 80/20 Weekly Plan')}\r\nCATEGORIES:${cat}\r\nSTATUS:CONFIRMED\r\nTRANSP:OPAQUE\r\nEND:VEVENT\r\n`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>h=end;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ics+='END:VCALENDAR\r\n';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const a=document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.href=URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.download=`8020-plan-${document.getElementById('ws').value}.ics`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.click();URL.revokeObjectURL(a.href);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast('✓ Downloaded! Import into Outlook.');</p>
+<p class="p1">}</p>
+<p class="p1">function iesc(s){return s.replace(/[\\;,]/g,'\\$&amp;')}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Storage ── */</p>
+<p class="p1">function save(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{localStorage.setItem('8020a',JSON.stringify(A));localStorage.setItem('8020p',JSON.stringify(P))}catch(e){}</p>
+<p class="p1">}</p>
+<p class="p1">function load(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const a=localStorage.getItem('8020a'),p=localStorage.getItem('8020p');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(a)A=JSON.parse(a);if(p)P=JSON.parse(p);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(A.length||P.length)setTimeout(()=&gt;toast(`Loaded ${A.length} appointment${A.length!==1?'s':''} &amp; ${P.length} project${P.length!==1?'s':''} from last session`),300);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── Utilities ── */</p>
+<p class="p1">function esc(s){return s.replace(/&amp;/g,'&amp;amp;').replace(/&lt;/g,'&amp;lt;').replace(/&gt;/g,'&amp;gt;').replace(/"/g,'&amp;quot;')}</p>
+<p class="p1">function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=&gt;el.classList.remove('show'),2800)}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
